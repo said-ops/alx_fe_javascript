@@ -29,7 +29,6 @@ function showRandomQuote(){
     // console.log('good');
 }
 
-
 //click event listner to the new quote button
 document.getElementById('newQuote').addEventListener('click', showRandomQuote);
 
@@ -52,4 +51,11 @@ function addQuote () {
     }
 
 }
+//click event listner for the add button S
 document.getElementById('addQuote').addEventListener('click', addQuote);
+
+//createAddQuoteForm
+function createAddQuoteForm () {
+    //form elements goes here
+
+}
