@@ -128,11 +128,12 @@ function importFromJsonFile(event) {
 //Populate Categories Dynamically
 function populateCategories() {
     const categoryFilter = document.getElementById('categoryFilter');
+    const categories = quotesList.map(quote => quote.category);
     loadQuotes();
-    quotesList.forEach(quote => {
+    categories.forEach(categorie => {
 
         const option = document.createElement('option');
-        option.innerHTML = quote.category;
+        option.innerHTML = categorie;
         categoryFilter.appendChild(option);
 
     });  
