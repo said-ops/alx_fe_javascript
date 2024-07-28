@@ -52,6 +52,7 @@ function addQuote () {
 
         quoteText.innerHTML = `quote: ${newQuote.text}` ;
         quoteCategory.innerHTML = `category: ${newQuote.category}`;
+        
 
         quoteDisplayDiv.innerHTML = '';
         quoteDisplayDiv.appendChild(quoteText);
