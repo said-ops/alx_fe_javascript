@@ -17,14 +17,14 @@ let quotesList = [
         category : 'quote 4 category'
     }
 ];
+//quote display div
+const quoteDisplayDiv =  document.getElementById('quoteDisplay');
 // console.log(quotesList);
 
 //show random quote function
 
 function showRandomQuote(){
 
-
-    const quoteDisplay = document.getElementById('quoteDisplay');
     quoteDisplay.innerHTML = quotesList[Math.floor((Math.random()*quotesList.length))].text;
     // console.log('good');
 }
@@ -35,19 +35,31 @@ document.getElementById('newQuote').addEventListener('click', showRandomQuote);
 //function to add new quotes by user
 
 function addQuote () {
-
+    //input value
     let newQuoteText = document.getElementById('newQuoteText');
     let newQuoteCategory = document.getElementById('newQuoteCategory');
+
     if(! newQuoteText.value || ! newQuoteCategory.value){
         alert('please enter the quote text and category');
-    }else{
+    }else {
+
         const newQuote = {text : '', category : ''};
         newQuote.text = newQuoteText.value;
         newQuote.category = newQuoteCategory.value;
+        
+        let quoteText = document.createElement('p');
+        let quoteCategory = document.createElement('p');
+
+        quoteText.innerHTML = `quote: ${newQuote.text}` ;
+        quoteCategory.innerHTML = `category: ${newQuote.category}`;
+
+        quoteDisplayDiv.innerHTML = '';
+        quoteDisplayDiv.appendChild(quoteText);
+        quoteDisplayDiv.appendChild(quoteCategory);
+        
         quotesList.push(newQuote);
-        alert('New quote added');
-        newQuoteText.value = '';
-        newQuoteCategory.value = '';
+        alert('new quote added');
+
     }
 
 }
