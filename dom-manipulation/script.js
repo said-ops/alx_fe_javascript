@@ -97,6 +97,7 @@ function loadQuotes(){
         quotesList = JSON.parse(loadedQuotes);
          console.log( quotesList);
     }
+    
 }
 //function hundle export quotes
 function downloadQuotesAsJSON() {
@@ -152,9 +153,14 @@ function filterQuotes (){
                 p.innerHTML =  `<p>quote: ${quote.text}</p>`;
                 quoteDisplayDiv.appendChild(p);
             }
+        saveLastCategory(selectedCategory);    
         });
 } 
+//last category filter
+function saveLastCategory (lastCategory) {
 
+        localStorage.setItem('lastCategory', JSON.stringify(lastCategory));
+}
 document.addEventListener('DOMContentLoaded', () => {
     
     loadQuotes();
