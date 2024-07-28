@@ -26,7 +26,11 @@ const quoteDisplayDiv =  document.getElementById('quoteDisplay');
 
 function showRandomQuote(){
 
-    quoteDisplay.innerHTML = quotesList[Math.floor((Math.random()*quotesList.length))].text;
+    let index = Math.floor((Math.random()*quotesList.length));
+
+    quoteDisplay.innerHTML = '';
+    quoteDisplay.innerHTML = `<p>quote: ${quotesList[index].text}</p>
+                              <p>category: ${quotesList[index].category}</p>`;
     // console.log('good');
 }
 
@@ -91,9 +95,35 @@ function loadQuotes(){
     if(loadedQuotes){
 
         quotesList = JSON.parse(loadedQuotes);
-        // console.log( quotesList);
+         console.log( quotesList);
     }
 }
+//function hundle export quotes
+function downloadQuotesAsJSON() {
+    const dataStr = JSON.stringify(quotesList, null, 2); 
+    const blob = new Blob([dataStr], { type: 'application/json' }); 
+    const url = URL.createObjectURL(blob); 
+
+    const linkElement = document.createElement('a');
+    linkElement.href = url;
+    linkElement.download = 'quotes.json';
+    document.body.appendChild(linkElement); 
+    linkElement.click(); 
+    document.body.removeChild(linkElement); 
+    URL.revokeObjectURL(url); 
+}
+document.getElementById('download').addEventListener('click', downloadQuotesAsJSON);
+//function to handle import input
+function importFromJsonFile(event) {
+    const fileReader = new FileReader();
+    fileReader.onload = function(event) {
+      const importedQuotes = JSON.parse(event.target.result);
+      quotesList.push(...importedQuotes);
+      saveQuotes();
+      alert('Quotes imported successfully!');
+    };
+    fileReader.readAsText(event.target.files[0]);
+  }
 
 document.addEventListener('DOMContentLoaded', () => {
     loadQuotes();
