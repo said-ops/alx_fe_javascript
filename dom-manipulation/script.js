@@ -142,11 +142,11 @@ function populateCategories() {
 //filter quote function
 function filterQuotes (){
 
-        const choosenCategorie = document.getElementById('categoryFilter').value; 
+        const selectedCategory = document.getElementById('categoryFilter').value; 
         quoteDisplayDiv.innerHTML = '';
         quotesList.forEach(quote => {
             
-            if(quote.category.toLocaleLowerCase() === choosenCategorie.toLocaleLowerCase() ){
+            if(quote.category.toLocaleLowerCase() === selectedCategory.toLocaleLowerCase() ){
                 
                 const p = document.createElement('p');
                 p.innerHTML =  `<p>quote: ${quote.text}</p>`;
