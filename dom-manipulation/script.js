@@ -20,11 +20,14 @@ let quotesList = [
 // console.log(quotesList);
 
 //show random quote function
+
+function showRandomQuote(){
 function displayRandomQuote (){
 
     const quoteDisplay = document.getElementById('quoteDisplay');
     quoteDisplay.innerHTML = quotesList[Math.floor((Math.random()*quotesList.length))].text;
     // console.log('good');
+}
 }
 
 //click event listner to the new quote button
