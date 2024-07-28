@@ -124,7 +124,22 @@ function importFromJsonFile(event) {
     };
     fileReader.readAsText(event.target.files[0]);
   }
+//==================Task 2=======================
+//Populate Categories Dynamically
+function populateCategories() {
+    const categoryFilter = document.getElementById('categoryFilter');
+    loadQuotes();
+    quotesList.forEach(quote => {
+
+        const option = document.createElement('option');
+        option.innerHTML = quote.category;
+        categoryFilter.appendChild(option);
+
+    });  
+}  
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     loadQuotes();
+    populateCategories();
 })
