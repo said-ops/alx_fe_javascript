@@ -22,16 +22,16 @@ let quotesList = [
 //show random quote function
 
 function showRandomQuote(){
-function displayRandomQuote (){
+
 
     const quoteDisplay = document.getElementById('quoteDisplay');
     quoteDisplay.innerHTML = quotesList[Math.floor((Math.random()*quotesList.length))].text;
     // console.log('good');
 }
-}
+
 
 //click event listner to the new quote button
-document.getElementById('newQuote').addEventListener('click', displayRandomQuote);
+document.getElementById('newQuote').addEventListener('click', showRandomQuote);
 
 //function to add new quotes by user
 
