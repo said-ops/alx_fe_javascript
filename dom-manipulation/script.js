@@ -23,7 +23,7 @@ let quotesList = [
 function displayRandomQuote (){
 
     const quoteDisplay = document.getElementById('quoteDisplay');
-    quoteDisplay.textContent = quotesList[Math.floor((Math.random()*quotesList.length))].text;
+    quoteDisplay.innerHTML = quotesList[Math.floor((Math.random()*quotesList.length))].text;
     // console.log('good');
 }
 
