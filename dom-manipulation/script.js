@@ -19,7 +19,8 @@ let quotesList = [
 ];
 //quote display div
 const quoteDisplayDiv =  document.getElementById('quoteDisplay');
-// console.log(quotesList);
+
+//=============Task 0========================
 
 //show random quote function
 
@@ -53,13 +54,16 @@ function addQuote () {
         quoteText.innerHTML = `quote: ${newQuote.text}` ;
         quoteCategory.innerHTML = `category: ${newQuote.category}`;
         
-
         quoteDisplayDiv.innerHTML = '';
         quoteDisplayDiv.appendChild(quoteText);
         quoteDisplayDiv.appendChild(quoteCategory);
         
         quotesList.push(newQuote);
         alert('new quote added');
+
+        //save quotes list to local storage
+        saveQuotes();
+        console.log(quotesList);
 
     }
 
@@ -71,4 +75,9 @@ document.getElementById('addQuote').addEventListener('click', addQuote);
 function createAddQuoteForm () {
     //form elements goes here
 
+}
+//=====================Task 1==============================
+//function to save quotes to local storage
+function saveQuotes () {
+    localStorage.setItem('quotes' , JSON.stringify(quotesList));
 }
