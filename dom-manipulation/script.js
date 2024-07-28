@@ -20,7 +20,7 @@ let quotesList = [
 // console.log(quotesList);
 
 //show random quote function
-function showRandomQuote(){
+function displayRandomQuote (){
 
     const quoteDisplay = document.getElementById('quoteDisplay');
     quoteDisplay.textContent = quotesList[Math.floor((Math.random()*quotesList.length))].text;
@@ -28,7 +28,7 @@ function showRandomQuote(){
 }
 
 //click event listner to the new quote button
-document.getElementById('newQuote').addEventListener('click', showRandomQuote);
+document.getElementById('newQuote').addEventListener('click', displayRandomQuote);
 
 //function to add new quotes by user
 
