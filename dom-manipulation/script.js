@@ -129,15 +129,31 @@ function importFromJsonFile(event) {
 function populateCategories() {
     const categoryFilter = document.getElementById('categoryFilter');
     const categories = quotesList.map(quote => quote.category);
-    loadQuotes();
+    
     categories.forEach(categorie => {
 
         const option = document.createElement('option');
         option.textContent = categorie;
+        option.setAttribute('value', categorie);
         categoryFilter.appendChild(option);
 
     });  
-}  
+} 
+//filter quote function
+function filterQuotes (){
+
+        const choosenCategorie = document.getElementById('categoryFilter').value; 
+        quoteDisplayDiv.innerHTML = '';
+        quotesList.forEach(quote => {
+            
+            if(quote.category.toLocaleLowerCase() === choosenCategorie.toLocaleLowerCase() ){
+                
+                const p = document.createElement('p');
+                p.innerHTML =  `<p>quote: ${quote.text}</p>`;
+                quoteDisplayDiv.appendChild(p);
+            }
+        });
+} 
 
 document.addEventListener('DOMContentLoaded', () => {
     
