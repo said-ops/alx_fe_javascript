@@ -133,7 +133,7 @@ function populateCategories() {
     categories.forEach(categorie => {
 
         const option = document.createElement('option');
-        option.innerHTML = categorie;
+        option.textContent = categorie;
         categoryFilter.appendChild(option);
 
     });  
