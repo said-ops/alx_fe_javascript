@@ -60,10 +60,12 @@ function addQuote () {
         
         quotesList.push(newQuote);
         alert('new quote added');
+        newQuoteText.value = '';
+        newQuoteCategory.value = '';
 
         //save quotes list to local storage
         saveQuotes();
-        console.log(quotesList);
+        
 
     }
 
@@ -77,7 +79,22 @@ function createAddQuoteForm () {
 
 }
 //=====================Task 1==============================
-//function to save quotes to local storage
+//save quotes to local storage
 function saveQuotes () {
     localStorage.setItem('quotes' , JSON.stringify(quotesList));
+    // console.log(quotesList);
 }
+//load quotes from local storage
+function loadQuotes(){
+    
+    let loadedQuotes = localStorage.getItem('quotes');
+    if(loadedQuotes){
+
+        quotesList = JSON.parse(loadedQuotes);
+        // console.log( quotesList);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadQuotes();
+})
